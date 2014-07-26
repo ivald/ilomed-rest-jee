@@ -1,1 +1,0 @@
-insert into user_info (email) values ('andrey.cheptsov@gmail.com')
