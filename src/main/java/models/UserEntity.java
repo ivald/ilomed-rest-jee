@@ -6,10 +6,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_info")
-public class User {
+public class UserEntity extends BaseEntity{
     private String email;
 
-    @Id
     public String getEmail() {
         return email;
     }

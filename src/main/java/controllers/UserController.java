@@ -1,7 +1,7 @@
 package controllers;
 
-import models.User;
-import services.UserService;
+import models.UserEntity;
+import services.ifc.UserService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,8 +19,9 @@ public class UserController {
     @Produces("application/json")
     public JsonArray getUsers() {
         JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-        for (User user : userService.getAll()) {
-            arrayBuilder.add(Json.createObjectBuilder().add("email", user.getEmail()));
+        for (UserEntity userEntity : userService.getAll()) {
+            arrayBuilder.add(Json.createObjectBuilder().add("id", userEntity.getId()));
+            arrayBuilder.add(Json.createObjectBuilder().add("email", userEntity.getEmail()));
         }
         return arrayBuilder.build();
     }
@@ -37,6 +38,6 @@ public class UserController {
     @Path("/delete")
     @POST()
     public void deleteUser(@QueryParam("email") String email) {
-        userService.deleteUser(email);
+        userService.delete(email);
     }
 }

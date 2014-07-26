@@ -1,1 +1,0 @@
-create table user_info (email varchar(50) primary key)
