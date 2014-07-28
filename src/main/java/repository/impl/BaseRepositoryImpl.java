@@ -1,11 +1,11 @@
 package repository.impl;
 
-import repository.ifc.BaseRepository;
+import repository.ifc.BaseIfc;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class BaseRepositoryImpl<E> implements BaseRepository<E> {
+public class BaseRepositoryImpl<E> implements BaseIfc<E> {
     @PersistenceContext
     protected EntityManager em;
     private final Class<E> entityClass;

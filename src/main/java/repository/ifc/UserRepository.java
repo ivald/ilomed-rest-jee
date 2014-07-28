@@ -4,7 +4,7 @@ import models.UserEntity;
 
 import java.util.List;
 
-public interface UserRepository extends BaseRepository<UserEntity> {
+public interface UserRepository extends BaseIfc<UserEntity> {
 
     public List<UserEntity> getAll();
 

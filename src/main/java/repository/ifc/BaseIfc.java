@@ -1,6 +1,6 @@
 package repository.ifc;
 
-public interface BaseRepository<E> {
+public interface BaseIfc<E> {
 
     public E find(Long id);
 
