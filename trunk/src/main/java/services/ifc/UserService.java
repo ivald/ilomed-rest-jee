@@ -1,11 +1,11 @@
 package services.ifc;
 
 import models.UserEntity;
-import repository.ifc.BaseRepository;
+import repository.ifc.BaseIfc;
 
 import java.util.List;
 
-public interface UserService extends BaseRepository<UserEntity> {
+public interface UserService extends BaseIfc<UserEntity> {
 
     public List<UserEntity> getAll();
 
