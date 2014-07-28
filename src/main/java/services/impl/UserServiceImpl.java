@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.find(id);
     }
 
-    @Override
     public UserEntity find(String name) {
         return userRepository.find(name);
     }
@@ -31,11 +30,14 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userEntity);
     }
 
+    public void delete(UserEntity entity) {
+        userRepository.delete(entity);
+    }
+
     public void delete(Long id) {
         userRepository.delete(id);
     }
 
-    @Override
     public void delete(String name) {
         userRepository.delete(name);
     }

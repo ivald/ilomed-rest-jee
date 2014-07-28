@@ -6,7 +6,7 @@ import repository.ifc.UserRepository;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository {
+public class UserRepositoryImpl extends BaseRepositoryImpl<UserEntity> implements UserRepository {
 
     public UserRepositoryImpl() {
         super(UserEntity.class);
@@ -21,27 +21,10 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
         return query.getResultList();
     }
 
-    @Override
-    public UserEntity find(Long id) {
-        return em.find(UserEntity.class, id);
-    }
-
-    @Override
     public UserEntity find(String name) {
         return em.find(UserEntity.class, name);
     }
 
-    public void save(UserEntity userEntity) {
-        super.save(userEntity);
-    }
-
-    @Override
-    public void delete(Long id) {
-        UserEntity userEntity = em.find(UserEntity.class, id);
-        em.remove(userEntity);
-    }
-
-    @Override
     public void delete(String name) {
         em.remove(find(name));
     }
