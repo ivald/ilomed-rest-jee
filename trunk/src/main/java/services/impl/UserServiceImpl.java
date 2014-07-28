@@ -5,10 +5,14 @@ import repository.ifc.UserRepository;
 import services.ifc.UserService;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Any;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
 @Stateless
+@Default @Any
 public class UserServiceImpl implements UserService {
 
     @Inject
