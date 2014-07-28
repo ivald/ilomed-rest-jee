@@ -1,8 +1,5 @@
 package repository.ifc;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 public interface BaseRepository<E> {
 
     public E find(Long id);
