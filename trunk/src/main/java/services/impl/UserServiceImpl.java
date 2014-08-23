@@ -12,7 +12,7 @@ import javax.inject.Named;
 import java.util.List;
 
 @Stateless
-@Default @Any
+@Default
 public class UserServiceImpl implements UserService {
 
     @Inject
