@@ -19,10 +19,10 @@ public class UserController {
     @Produces("application/json")
     public JsonArray getUsers() {
         JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-        for (UserEntity userEntity : userService.getAll()) {
-            arrayBuilder.add(Json.createObjectBuilder().add("id", userEntity.getId()));
-            arrayBuilder.add(Json.createObjectBuilder().add("email", userEntity.getEmail()));
-        }
+        //for (UserEntity userEntity : userService.getAll()) {
+            arrayBuilder.add(Json.createObjectBuilder().add("id", "userEntity.getId()"));
+            arrayBuilder.add(Json.createObjectBuilder().add("email", "userEntity.getEmail()"));
+        //}
         return arrayBuilder.build();
     }
 
