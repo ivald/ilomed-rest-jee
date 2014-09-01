@@ -1,5 +1,6 @@
 package services.ifc;
 
+import exceptions.LoginException;
 import models.UserEntity;
 
 /**
@@ -7,10 +8,11 @@ import models.UserEntity;
  */
 public interface LoginService {
     /**
-     * The method returns a user by their user name and password.
+     * The method returns a user by their user name
      *
      * @param username
-     * @return UserEntity
+     * @return
+     * @throws LoginException
      */
-    public UserEntity findEntityByUserNameAndPass(String username);
+    public UserEntity findEntityByUserNameAndPass(String username) throws Exception;
 }

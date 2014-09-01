@@ -1,6 +1,8 @@
 package repository.impl;
 
+import exceptions.LoginException;
 import models.UserEntity;
+import org.apache.log4j.Logger;
 import repository.ifc.LoginRepository;
 
 import javax.persistence.Query;
@@ -11,14 +13,25 @@ import javax.transaction.Transactional;
  */
 public class LoginRepositoryImpl extends BaseRepositoryImpl<UserEntity> implements LoginRepository {
 
+    private static final Logger LOGGER = Logger.getLogger(LoginRepositoryImpl.class.getName());
+
     public LoginRepositoryImpl() {
         super(UserEntity.class);
     }
 
     @Transactional
-    public UserEntity findEntityByUserNameAndPass(String username) {
-        Query query = em.createNamedQuery(UserEntity.FIND_BY_USERNAME_PASSWORD)
-                .setParameter("p1", username);
-        return (UserEntity) query.getSingleResult();
+    public UserEntity findEntityByUserNameAndPass(String username) throws Exception {
+        UserEntity user = null;
+
+        try {
+            Query query = em.createNamedQuery(UserEntity.FIND_BY_USERNAME_PASSWORD)
+                    .setParameter("p1", username);
+            user = (UserEntity) query.getSingleResult();
+        } catch (Exception e) {
+            LOGGER.warn(e.getMessage());
+            throw new Exception("Login failed. User " + username + " was not found.");
+        }
+
+        return user;
     }
 }
