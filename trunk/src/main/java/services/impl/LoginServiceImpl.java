@@ -1,5 +1,6 @@
 package services.impl;
 
+import exceptions.LoginException;
 import models.UserEntity;
 import repository.ifc.LoginRepository;
 import services.ifc.LoginService;
@@ -19,7 +20,7 @@ public class LoginServiceImpl implements LoginService {
     private LoginRepository loginRepository;
 
     @Override
-    public UserEntity findEntityByUserNameAndPass(String username) {
+    public UserEntity findEntityByUserNameAndPass(String username)  throws Exception {
         return loginRepository.findEntityByUserNameAndPass(username);
     }
 }
