@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "S_USER")
 @NamedQueries({@NamedQuery(name = UserEntity.FIND_BY_USERNAME_PASSWORD,
         query = "Select o from UserEntity o where o.userName = :p1")})
-@XmlRootElement(name = "USER_ENTITY_ELEMENT")
+@XmlRootElement(name = "UserEntity")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class UserEntity extends BaseEntity {
 

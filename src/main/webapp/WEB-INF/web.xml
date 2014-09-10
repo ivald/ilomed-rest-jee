@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
+        <welcome-file>/pages/index.html</welcome-file>
     </welcome-file-list>
 
     <context-param>

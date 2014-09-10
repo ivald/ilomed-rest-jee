@@ -28,7 +28,7 @@ public class LoginRepositoryImpl extends BaseRepositoryImpl<UserEntity> implemen
                     .setParameter("p1", username);
             user = (UserEntity) query.getSingleResult();
         } catch (Exception e) {
-            LOGGER.warn(e.getMessage());
+            LOGGER.error(e.getMessage());
             throw new Exception("Login failed. User " + username + " was not found.");
         }
 
