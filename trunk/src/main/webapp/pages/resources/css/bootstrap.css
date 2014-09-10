@@ -75,7 +75,7 @@ pre {
     white-space: pre-wrap;
 }
 q {
-    quotes: "“" "”" "‘" "’";
+    quotes: "ï¿½" "ï¿½" "ï¿½" "ï¿½";
 }
 small {
     font-size: 80%;
@@ -489,7 +489,7 @@ blockquote small, blockquote .small {
     line-height: 1.42857;
 }
 blockquote small:before, blockquote .small:before {
-    content: "— ";
+    content: "ï¿½ ";
 }
 blockquote.pull-right {
     border-left: 0 none;
@@ -504,7 +504,7 @@ blockquote.pull-right small:before, blockquote.pull-right .small:before {
     content: "";
 }
 blockquote.pull-right small:after, blockquote.pull-right .small:after {
-    content: " —";
+    content: " ï¿½";
 }
 blockquote:before, blockquote:after {
     content: "";
@@ -1875,7 +1875,7 @@ input.btn-block[type="submit"], input.btn-block[type="reset"], input.btn-block[t
     content: "+";
 }
 .glyphicon-euro:before {
-    content: "€";
+    content: "ï¿½";
 }
 .glyphicon-minus:before {
     content: "?";
@@ -3803,7 +3803,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     border: 1px solid transparent;
     border-radius: 4px;
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 5px;
 }
 .alert h4 {
     color: inherit;
@@ -4654,10 +4654,10 @@ button.close {
     width: 20px;
 }
 .carousel-control .icon-prev:before {
-    content: "‹";
+    content: "ï¿½";
 }
 .carousel-control .icon-next:before {
-    content: "›";
+    content: "ï¿½";
 }
 .carousel-indicators {
     bottom: 10px;
