@@ -1,6 +1,7 @@
 package repository.impl;
 
 import repository.ifc.BaseIfc;
+import services.impl.SequenceGeneratorServiceImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

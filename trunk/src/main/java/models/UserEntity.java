@@ -1,6 +1,7 @@
 package models;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import services.impl.SequenceGeneratorServiceImpl;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -12,23 +13,29 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "S_USER")
-@NamedQueries({@NamedQuery(name = UserEntity.FIND_BY_USERNAME_PASSWORD,
-        query = "Select o from UserEntity o where o.userName = :p1")})
+@NamedQueries({
+        @NamedQuery(name = UserEntity.FIND_BY_USERNAME,
+                    query = "Select o from UserEntity o where o.userName = :p1")})
 @XmlRootElement(name = "UserEntity")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class UserEntity extends BaseEntity {
 
-    public final static String FIND_BY_USERNAME_PASSWORD = "UserEntity.findByUsernamePassword";
+    public final static String FIND_BY_USERNAME = "UserEntity.findByUsername";
 
-    @Column(name = "username")
+    @Column(name = "USER_NAME")
     private String userName;
-    @Column(name = "password")
+    @Column(name = "PASSWORD")
     private String password;
-    @Column(name = "contact_id")
-    private Long contactID;
+    @OneToOne
+    @JoinColumn(name = "CONTACT_ID")
+    private ContactEntity contactEntity;
 
     public UserEntity() {
         super();
+    }
+
+    public UserEntity(Class objClass) throws Exception {
+        setId(SequenceGeneratorServiceImpl.getInstance().getNextSequenceId(objClass.getName()));
     }
 
     public String getUserName() {
@@ -48,12 +55,12 @@ public class UserEntity extends BaseEntity {
         this.password = passwordEncoder.encode(password);
     }
 
-    public Long getContactId() {
-        return contactID;
+    public ContactEntity getContactEntity() {
+        return contactEntity;
     }
 
-    public void setContactId(Long contactId) {
-        this.contactID = contactId;
+    public void setContactEntity(ContactEntity contact) {
+        this.contactEntity = contact;
     }
 
     public Boolean isPasswordEqual(String password) {

@@ -4,7 +4,7 @@ public interface BaseIfc<E> {
 
     public E find(Long id);
 
-    public void save(E entity);
+    public void save(E entity) throws Exception;
 
     public void delete(E entity);
 

@@ -1,6 +1,5 @@
 package services.ifc;
 
-import exceptions.LoginException;
 import models.UserEntity;
 
 /**
@@ -12,7 +11,7 @@ public interface LoginService {
      *
      * @param username
      * @return
-     * @throws LoginException
+     * @throws exceptions.WebResponseException
      */
     public UserEntity findEntityByUserNameAndPass(String username) throws Exception;
 }

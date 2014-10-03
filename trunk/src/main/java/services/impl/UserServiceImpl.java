@@ -12,7 +12,6 @@ import javax.inject.Named;
 import java.util.List;
 
 @Stateless
-@Default
 public class UserServiceImpl implements UserService {
 
     @Inject
@@ -30,7 +29,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.find(name);
     }
 
-    public void save(UserEntity userEntity) {
+    public void save(UserEntity userEntity) throws Exception  {
         userRepository.save(userEntity);
     }
 

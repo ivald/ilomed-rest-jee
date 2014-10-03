@@ -1,6 +1,5 @@
 package repository.ifc;
 
-import exceptions.LoginException;
 import models.UserEntity;
 
 /**
@@ -13,5 +12,5 @@ public interface LoginRepository {
      * @param username
      * @return UserEntity
      */
-    public UserEntity findEntityByUserNameAndPass(String username) throws Exception;
+    UserEntity findEntityByUserNameAndPass(String username) throws Exception;
 }
