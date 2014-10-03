@@ -1,20 +1,20 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import constant.CommonConstant;
+import services.impl.SequenceGeneratorServiceImpl;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by ivald79 on 02/07/2014.
  */
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+public class BaseEntity<E> implements Serializable {
     private static final long serialVersionUID = 568379222048217476L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -22,8 +22,7 @@ public class BaseEntity implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long id) throws Exception {
+       this.id = id;
     }
-
 }

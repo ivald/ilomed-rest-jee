@@ -1,6 +1,5 @@
 package repository.impl;
 
-import exceptions.LoginException;
 import models.UserEntity;
 import org.apache.log4j.Logger;
 import repository.ifc.LoginRepository;
@@ -24,7 +23,7 @@ public class LoginRepositoryImpl extends BaseRepositoryImpl<UserEntity> implemen
         UserEntity user = null;
 
         try {
-            Query query = em.createNamedQuery(UserEntity.FIND_BY_USERNAME_PASSWORD)
+            Query query = em.createNamedQuery(UserEntity.FIND_BY_USERNAME)
                     .setParameter("p1", username);
             user = (UserEntity) query.getSingleResult();
         } catch (Exception e) {

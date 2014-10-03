@@ -1877,16 +1877,25 @@ Component: timeline
     box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.09);
 }
 .valid_failed {
-    background: url("../img/Button-stop-icon.png") no-repeat;
-    background-position: right center;
+     background: url("../img/Button-stop-icon.png") no-repeat;
+    background-position:  99% center;
+    background-size: 16px 16px;
+ }
+
+.valid_failed1 {
+    background: url("../img/validate-icon.png") no-repeat;
+    background-position:  99% center;
+    background-size: 12px 12px;
 }
+
 .valid_approved {
     background: url("../img/Clear-Green-Button-icon.png") no-repeat;
     background-position: right center;
 }
 .loader {
     background: url("../img/gif-load-blue.gif") no-repeat; /*display:none;*/
-    background-position: right center;
+    background-position:  99% center;
+    background-size: 16px 16px;
 }
 .btn.btn-default {
     background-color: #fafafa;
@@ -2098,7 +2107,7 @@ Component: timeline
     /*padding-left: 30px;*/
     /*margin-left: 15px;*/
     position: relative;
-    height:30px;
+    /*height:30px;*/
     text-align: right center;
 }
 .alert > .fa,
