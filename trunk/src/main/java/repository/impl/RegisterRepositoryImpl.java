@@ -3,8 +3,10 @@ package repository.impl;
 import models.UserEntity;
 import org.apache.log4j.Logger;
 import repository.ifc.RegisterRepository;
+import services.ifc.LoginService;
 import services.impl.SequenceGeneratorServiceImpl;
 
+import javax.inject.Inject;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
@@ -15,6 +17,9 @@ public class RegisterRepositoryImpl extends BaseRepositoryImpl<UserEntity> imple
 
     private static final Logger LOGGER = Logger.getLogger(RegisterRepositoryImpl.class.getName());
 
+    @Inject
+    private LoginService loginService;
+
     public RegisterRepositoryImpl() {
         super(UserEntity.class);
     }
@@ -22,10 +27,8 @@ public class RegisterRepositoryImpl extends BaseRepositoryImpl<UserEntity> imple
     @Override
     public boolean isUserNameValid(String username) {
         try {
-            Query query = em.createNamedQuery(UserEntity.FIND_BY_USERNAME)
-                    .setParameter("p1", username);
-            query.getSingleResult();
-        } catch (NoResultException e) {
+            loginService.findEntityByUserNameAndPass(username);
+        } catch (Exception e) {
             LOGGER.error(e.getMessage());
             return Boolean.TRUE;
         }
