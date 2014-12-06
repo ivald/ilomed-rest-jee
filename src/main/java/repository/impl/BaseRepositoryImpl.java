@@ -10,6 +10,7 @@ public class BaseRepositoryImpl<E> implements BaseIfc<E> {
     @PersistenceContext
     protected EntityManager em;
     private final Class<E> entityClass;
+    protected String message;
 
     public BaseRepositoryImpl(Class<E> entityClass) {
         this.entityClass = entityClass;
