@@ -1,9 +1,6 @@
 package controllers;
 
-import constant.ResponseError;
 import exceptions.WebResponseException;
-import models.ContactEntity;
-import models.UserEntity;
 import models.WebResponse;
 import org.apache.log4j.Logger;
 import services.ifc.RegisterService;
