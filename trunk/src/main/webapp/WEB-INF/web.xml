@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
+        <welcome-file>/pages/console/index.html</welcome-file>
         <welcome-file>/pages/index.html</welcome-file>
     </welcome-file-list>
 
@@ -48,6 +49,6 @@
     <!--</filter-mapping>-->
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/pages/*</url-pattern>
+        <url-pattern>/pages/console/*</url-pattern>
     </filter-mapping>
 </web-app>

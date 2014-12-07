@@ -39,7 +39,7 @@ $(document).ready(function () {
                     showMessage(data.responseMessage);
                     return false;
                 } else {
-                    window.location = "welcome.html";
+                    window.location = "console/welcome.html";
                 }
             },
             error: function (xhr, err) {

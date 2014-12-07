@@ -12,6 +12,7 @@ import services.ifc.LoginService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -48,8 +49,8 @@ public class LoginController extends BaseController {
                 if (user != null && user.isPasswordEqual(password)) {
                     response.setResponseCode(ResponseError.SUCCESS);
                     response.setResponseMessage(gson.toJson(user));
-                    request.getSession(true);
-                    request.setAttribute(CommonConstant.USER_TICKET, user);
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute(CommonConstant.USER_TICKET, user);
                     message = "Data of user " + user.getUserName() + " was saved in Web Session Ticket";
                     LOGGER.info(message);
                 } else {
