@@ -35,7 +35,7 @@ public class AuthenticationFilter implements Filter {
 
         if(session.isNew() || INCORRECT_URI.equals(uri) || session.getAttribute(CommonConstant.USER_TICKET) == null) {
             LOGGER.info("Unauthorized access request");
-            session.setAttribute(CommonConstant.USER_TICKET, null);
+            session.invalidate();
             res.sendRedirect(req.getContextPath() + "/index.html");
         } else {
             // pass the request along the filter chain
