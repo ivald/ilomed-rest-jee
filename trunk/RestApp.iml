@@ -37,15 +37,15 @@
       <excludeFolder url="file://$MODULE_DIR$/lib" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
-    <orderEntry type="library" exported="" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
-    <orderEntry type="library" exported="" name="Maven: javax.activation:activation:1.1" level="project" />
-    <orderEntry type="library" exported="" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" level="project" />
-    <orderEntry type="library" exported="" name="Maven: org.springframework:spring-core:3.0.6.RELEASE" level="project" />
-    <orderEntry type="library" exported="" name="Maven: org.springframework:spring-asm:3.0.6.RELEASE" level="project" />
-    <orderEntry type="library" exported="" name="Maven: log4j:log4j:1.2.16" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:3.0.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-asm:3.0.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.ext:jersey-spring3:2.3" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-server:2.3" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.3" level="project" />
@@ -79,6 +79,6 @@
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:3.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0" level="project" />
-    <orderEntry type="library" exported="" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />
   </component>
 </module>

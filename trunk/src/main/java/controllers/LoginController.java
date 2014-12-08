@@ -51,6 +51,7 @@ public class LoginController extends BaseController {
                     response.setResponseMessage(gson.toJson(user));
                     HttpSession session = request.getSession(true);
                     session.setAttribute(CommonConstant.USER_TICKET, user);
+                    session.setMaxInactiveInterval(CommonConstant.SESSION_TIME_OUT);
                     message = "Data of user " + user.getUserName() + " was saved in Web Session Ticket";
                     LOGGER.info(message);
                 } else {
