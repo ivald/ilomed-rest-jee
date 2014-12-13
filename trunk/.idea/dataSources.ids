@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - mrestdb@localhost" uuid="c03d61c3-d1c5-48c6-a511-a1b98d355e2c">
+    <database-info product="MySQL" version="5.5.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="mrestdb"/>
+    <table name="c_contact" schema="" catalog="mrestdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="FIRST_NAME" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LAST_NAME" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk1_sUser" table="s_user" schema="" catalog="mrestdb" columns="CONTACT_ID"/>
+    </table>
+    <table name="e_numerator" schema="" catalog="mrestdb" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="step" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+    </table>
+    <table name="s_user" schema="" catalog="mrestdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="USER_NAME" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CONTACT_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk1_sUser" columns="CONTACT_ID" ref-table="c_contact" ref-schema="" ref-catalog="mrestdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk1_sUser" unique="false" columns="CONTACT_ID"/>
+    </table>
+  </data-source>
+</component>
