@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.core.CacheControl;
 
 @WebFilter("/AuthenticationFilter")
 public class AuthenticationFilter implements Filter {
@@ -33,7 +34,7 @@ public class AuthenticationFilter implements Filter {
 
         HttpSession session = req.getSession(true);
 
-        if(session.isNew() || INCORRECT_URI.equals(uri) || session.getAttribute(CommonConstant.USER_TICKET) == null) {
+        if (session.isNew() || INCORRECT_URI.equals(uri) || session.getAttribute(CommonConstant.USER_TICKET) == null) {
             LOGGER.info("Unauthorized access request");
             session.invalidate();
             res.sendRedirect(req.getContextPath() + "/index.html");
