@@ -40,6 +40,8 @@ $(document).ready(function () {
                     return false;
                 } else {
                     window.location = "console/welcome.html";
+                    //var window_dimensions = "addressbar=0, status=no,titlebar=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,height=" + screen.height + ", width=" + screen.width;
+                    //window.open(htmlRootPath + "pages/console/welcome.html","_blank",  window_dimensions);
                 }
             },
             error: function (xhr, err) {
