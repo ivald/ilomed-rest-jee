@@ -103,6 +103,34 @@ $(document).ready(function () {
             }
         });
     });
+
+    $("#exitBtn").on("click", function() {
+        bootbox.confirm("Are you sure?", function(result) {
+            if(result == true) {
+
+                $.ajax({
+                    type: 'GET',
+                    complete: function () {
+
+                    },
+                    dataType: 'json',
+                    contentType:  "application/json",
+                    url: mainRootPath + "logout/",
+                    success: function (data) {
+                        window.location = "login.html";
+                    },
+                    error: function (xhr, err) {
+                        console.log('Sample of error data:', err);
+                        console.log("readyState: " + xhr.readyState + "\nstatus: "
+                        + xhr.status + "\nresponseText: "
+                        + xhr.responseText);
+                        showMessage(xhr.responseText);
+                    }
+                });
+            }
+        });
+    });
+
 });
 
 function validTextField(elem) {
