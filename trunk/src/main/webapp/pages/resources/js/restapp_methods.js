@@ -79,6 +79,11 @@ $(document).ready(function () {
             return false;
         }
 
+        //create json object
+        var userObj = {"userName": user, "password": pass};
+        var contactObj = {"firstName": firstName, "lastName": lastName};
+        userObj.contact = contactObj;
+
         $('#button_register').addClass('loader');
 
         $.ajax({
@@ -88,8 +93,8 @@ $(document).ready(function () {
             },
             dataType: 'json',
             contentType: "application/json",
-            url: mainRootPath + "register/registration/username/" + user + "/password/" + pass +
-                "/firstname/" + firstName + "/lastname/" + lastName,
+            url: mainRootPath + "register/registration",
+            data: JSON.stringify(userObj),
             success: function (data) {
                 showMessage(data.responseMessage);
                 return false;

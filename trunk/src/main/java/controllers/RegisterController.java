@@ -2,9 +2,13 @@ package controllers;
 
 import exceptions.WebResponseException;
 import models.WebResponse;
+import models.ws.ContactWSNEntity;
+import models.ws.UserWSNEntity;
 import org.apache.log4j.Logger;
 import services.ifc.RegisterService;
 
+import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.*;
@@ -15,6 +19,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("/register")
 @Named
+@RequestScoped
 public class RegisterController extends BaseController {
 
     private static final Logger LOGGER = Logger.getLogger(RegisterController.class.getName());
@@ -25,15 +30,15 @@ public class RegisterController extends BaseController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/registration/username/{username}/password/{password}/firstname/{firstname}/lastname/{lastname}")
-    public WebResponse registration(@PathParam("username") String username,
-                                    @PathParam("password") String password,
-                                    @PathParam("firstname") String firstname,
-                                    @PathParam("lastname") String lastname) throws Exception {
+    @Path("/registration")
+    public WebResponse registration(UserWSNEntity userEntity) throws Exception {
         WebResponse response = null;
 
         try {
-            response = registerService.registration(username, password, firstname, lastname);
+            response = registerService.registration(userEntity.getUserName(),
+                    userEntity.getPassword(),
+                    userEntity.getContactWSNEntity().getFirstName(),
+                    userEntity.getContactWSNEntity().getLastName());
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             throw new WebResponseException(e.getMessage());
