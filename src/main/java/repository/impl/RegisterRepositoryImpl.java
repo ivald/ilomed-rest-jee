@@ -4,15 +4,12 @@ import constant.ResponseError;
 import models.ContactEntity;
 import models.UserEntity;
 import models.WebResponse;
+import models.ws.UserWSNEntity;
 import org.apache.log4j.Logger;
 import repository.ifc.RegisterRepository;
 import services.ifc.LoginService;
-import services.ifc.RegisterService;
-import services.impl.SequenceGeneratorServiceImpl;
 
 import javax.inject.Inject;
-import javax.persistence.NoResultException;
-import javax.persistence.Query;
 
 /**
  * Created by ivald79 on 24/09/2014.
@@ -41,33 +38,37 @@ public class RegisterRepositoryImpl extends BaseRepositoryImpl<UserEntity> imple
     }
 
     @Override
-    public WebResponse registration(String username, String password, String firstname, String lastname) throws Exception {
+    public WebResponse registration(UserWSNEntity userEntity) throws Exception {
 
         WebResponse response = new WebResponse();
 
         try {
-            if (firstname == null || lastname == null || username == null || password == null) {
+            if (userEntity.getContactWSNEntity() == null ||
+                    (userEntity.getContactWSNEntity().getFirstName() == null ||
+                            userEntity.getContactWSNEntity().getLastName() == null ||
+                            userEntity.getUserName() == null ||
+                            userEntity.getPassword() == null)) {
                 response.setResponseCode(ResponseError.FAILED);
                 message = "An one parameter is empty.";
                 response.setResponseMessage(message);
                 LOGGER.warn(message);
             } else {
-                if (isUserNameValid(username)) {
-                    UserEntity userEntity = new UserEntity(UserEntity.class);
-                    userEntity.setUserName(username);
-                    userEntity.setPassword(password);
+                if (isUserNameValid(userEntity.getUserName())) {
+                    UserEntity user = new UserEntity(UserEntity.class);
+                    user.setUserName(userEntity.getUserName());
+                    user.setPassword(userEntity.getPassword());
                     ContactEntity contactEntity = new ContactEntity(ContactEntity.class);
-                    contactEntity.setFirstName(firstname);
-                    contactEntity.setLastName(lastname);
-                    userEntity.setContactEntity(contactEntity);
-                    save(userEntity);
+                    contactEntity.setFirstName(userEntity.getContactWSNEntity().getFirstName());
+                    contactEntity.setLastName(userEntity.getContactWSNEntity().getLastName());
+                    user.setContactEntity(contactEntity);
+                    save(user);
                     response.setResponseCode(ResponseError.SUCCESS);
-                    message = "User " + userEntity.getUserName() + " was registered successfully.";
+                    message = "User " + user.getUserName() + " was registered successfully.";
                     response.setResponseMessage(message);
                     LOGGER.info(message);
                 } else {
                     response.setResponseCode(ResponseError.FAILED);
-                    message = "The user name: " + username + " already exists. Please try again.";
+                    message = "The user name: " + userEntity.getUserName() + " already exists. Please try again.";
                     response.setResponseMessage(message);
                     LOGGER.warn(message);
                 }

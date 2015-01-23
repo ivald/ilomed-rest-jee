@@ -31,14 +31,11 @@ public class RegisterController extends BaseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/registration")
-    public WebResponse registration(UserWSNEntity userEntity) throws Exception {
+    public WebResponse registration(UserWSNEntity userWSNEntity) throws Exception {
         WebResponse response = null;
 
         try {
-            response = registerService.registration(userEntity.getUserName(),
-                    userEntity.getPassword(),
-                    userEntity.getContactWSNEntity().getFirstName(),
-                    userEntity.getContactWSNEntity().getLastName());
+            response = registerService.registration(userWSNEntity);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             throw new WebResponseException(e.getMessage());

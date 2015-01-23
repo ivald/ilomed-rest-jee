@@ -1,7 +1,7 @@
 package services.impl;
 
-import models.UserEntity;
 import models.WebResponse;
+import models.ws.UserWSNEntity;
 import repository.ifc.RegisterRepository;
 import services.ifc.RegisterService;
 
@@ -17,7 +17,7 @@ public class RegisterServiceImpl implements RegisterService {
     @Inject
     private RegisterRepository registerRepository;
 
-    public WebResponse registration(String username,String password,String firstname,String lastname) throws Exception {
-        return registerRepository.registration(username, password, firstname, lastname);
+    public WebResponse registration(UserWSNEntity userEntity) throws Exception {
+        return registerRepository.registration(userEntity);
     }
 }
