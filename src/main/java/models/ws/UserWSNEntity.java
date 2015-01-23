@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Created by ivald79 on 23/10/2014.
  */
-@XmlRootElement
+@XmlRootElement(name="user")
 public class UserWSNEntity {
 
     private String userName;
@@ -25,6 +25,7 @@ public class UserWSNEntity {
         return userName;
     }
 
+    @XmlElement
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -33,6 +34,7 @@ public class UserWSNEntity {
         return password;
     }
 
+    @XmlElement
     public void setPassword(String password) {
         this.password = password;
     }
@@ -42,7 +44,7 @@ public class UserWSNEntity {
     }
 
     //override the name for the XML element
-    @XmlElement(name = "Contact")
+    @XmlElement(name = "contact")
     public void setContactWSNEntity(ContactWSNEntity contact) {
         this.contactWSNEntity = contact;
     }
