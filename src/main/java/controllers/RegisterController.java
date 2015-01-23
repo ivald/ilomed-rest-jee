@@ -2,16 +2,17 @@ package controllers;
 
 import exceptions.WebResponseException;
 import models.WebResponse;
-import models.ws.ContactWSNEntity;
 import models.ws.UserWSNEntity;
 import org.apache.log4j.Logger;
 import services.ifc.RegisterService;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
