@@ -1,9 +1,6 @@
 package ws.impl;
 
-import constant.CommonConstant;
 import exceptions.WebResponseException;
-import models.ContactEntity;
-import models.UserEntity;
 import models.WebResponse;
 import models.ws.UserWSNEntity;
 import org.apache.log4j.Logger;
@@ -32,12 +29,7 @@ public class RegisterWSImpl extends BaseWS implements RegisterWS {
         WebResponse response = null;
 
         try {
-            String username = userWSNEntity.getUserName();
-            String password = userWSNEntity.getPassword();
-            String firstName = userWSNEntity.getContactWSNEntity().getFirstName();
-            String lastName = userWSNEntity.getContactWSNEntity().getLastName();
-
-            response = registerService.registration(username, password, firstName, lastName);
+            response = registerService.registration(userWSNEntity);
             message = response.getResponseMessage();
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
